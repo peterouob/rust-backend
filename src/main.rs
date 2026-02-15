@@ -13,7 +13,7 @@ extern crate thiserror;
 async fn main() -> anyhow::Result<()>{
     dotenv().ok();
 
-    let pg_url = env::var("PGURL").expect("PGURL must be set");
+    let pg_url = env::var("DATABASE_URL").expect("PGURL must be set");
 
     let db_pool = PgPoolOptions::new()
         .max_connections(5)
