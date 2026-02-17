@@ -1,19 +1,18 @@
 use serde_derive::{Deserialize, Serialize};
-use uuid::{uuid, Uuid};
 
-#[derive(Serialize,Deserialize,Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct User {
-    id: Option<Uuid>,
-    name: String,
-    password: String
+    pub id: Option<i32>,
+    pub username: String,
+    pub password: String,
 }
 
 impl User {
-    pub fn new(name: String,password: String) -> Self {
-        User{
-            id: Some(Uuid::new_v4()),
-            name,
-            password
+    pub fn new(username: String, password: String) -> Self {
+        User {
+            id: None,
+            username,
+            password,
         }
     }
 }
